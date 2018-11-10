@@ -1,0 +1,24 @@
+{
+  "name": "express-mvc-router",
+  "version": "1.0.0",
+  "description": "It simplifies route management by automatically loading controllers and generating routes based on controller methods.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cesarrdzs/express-mvc-router.git"
+  },
+  "keywords": [
+    "express",
+    "auto",
+    "router"
+  ],
+  "author": "cesarrdzs",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/cesarrdzs/express-mvc-router/issues"
+  },
+  "homepage": "https://github.com/cesarrdzs/express-mvc-router#readme"
+}
