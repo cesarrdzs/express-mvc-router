@@ -18,11 +18,11 @@ const express = require('express');
 const MVCRouter = require('express-mvc-router');
 
 var app = express();
-app.use('/', new AutoRouter().load());
+app.use('/', new MVCRouter().load());
 
 // ...
 
-app.listen(process.env.PORT || 80);
+app.listen(process.env.PORT || 3000);
 ```
 
 The above code will load all controllers located on the default directory `./controllers`, and will parse all its methods and properties to generate routes.
@@ -48,6 +48,24 @@ module.exports = {
 ```
 
 The above controller will handle the paths "/home/index" and "/home/someAction" without the need for any configuration.
+
+ES6 class:
+
+```javascript
+// filename: homeController.js
+module.exports =  class HomeController {
+    
+    index () {
+        this.res.send('hello index!');
+    }
+
+    someAction () {
+        this.render();
+    }
+
+    // ...
+}
+```
 
 The `this` context during the execution of the actions will be the controller itself, which will be injected with the following properties:
 
@@ -188,10 +206,11 @@ module.exports = {
 };
 ```
 
-With eES6 class:
+ES6 class:
+
 ```javascript
 // file name: /controllers/homeController.js
-module.exports = class homeController {
+module.exports = class HomeController {
 	constructor(){}
 
     // implicit GET method.
@@ -206,7 +225,19 @@ module.exports = class homeController {
 		this.res.json({
 			userId: this.req.params.userId
 		})
-	}
+    }
+
+    // implicit POST method.
+    // will handle path POST /home/something
+    postSomething() {
+        this.res.send('hello from home');
+    }
+    
+    // hidden method.
+    _someHiddenMethod () {
+        this.res.send('hello from hidden');
+    }
+
 }
 ```
 
