@@ -20,5 +20,6 @@
   "bugs": {
     "url": "https://github.com/cesarrdzs/express-mvc-router/issues"
   },
-  "homepage": "https://github.com/cesarrdzs/express-mvc-router#readme"
+  "homepage": "https://github.com/cesarrdzs/express-mvc-router#readme",
+  "dependencies": {}
 }

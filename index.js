@@ -118,7 +118,7 @@ module.exports = class ExpressMVCRouter {
 					}
 				}
 				let controllerName = controllerData.controllerName == 'default' ? "" : controllerData.controllerName;
-				this.addRoute(method, controllerName + (pathName ? '/' + pathName : ''), controllerData.viewBaseName, actionName, args, instance);
+				this.addRoute(method, controllerName + (pathName ? '/' + pathName : ''), controllerData.viewBaseName, actionName, args, instance, controllerName);
 			}
 		}
 	}
@@ -167,9 +167,14 @@ module.exports = class ExpressMVCRouter {
 						data = arguments[0] || data;
 					}
 					if (!data.controllerName)
-						data.controllerName = controllerDef.controllerName;
-					if (!data.controllerName) data.actionName = controllerDef.actionName;
-					if (!data.currentUser) data.currentUser = this.req.user;
+						data.controllerName = routeData[6];
+					if (!data.actionName) data.actionName = actionName;
+					if (!data.session) data.session = this.req.session;
+					if(this.req.flash !== undefined){
+						data.success = this.req.flash("success");
+						data.error = this.req.flash("error");
+						data.info = this.req.flash("info");
+					}
 					res.render(viewBaseName + '/' + viewName, data);
 				};
 			};
