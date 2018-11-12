@@ -156,7 +156,7 @@ module.exports = class ExpressMVCRouter {
 				this.next = next;
 				// define a render method, that allows the view path to be implicit
 				this.render = function() {
-					var viewName = actionName.replace(implicitAuthPattern, '').replace(implicitIgnoreAuthPattern, '');
+					var viewName = actionName;
 					var data = {};
 					if (typeof(arguments[0]) === 'string') {
 						// a view name was specified, so the data was passed as second argument
