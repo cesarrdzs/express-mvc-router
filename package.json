@@ -1,6 +1,6 @@
 {
   "name": "express-mvc-router",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "It simplifies route management by automatically loading controllers and generating routes based on controller methods.",
   "main": "index.js",
   "scripts": {
