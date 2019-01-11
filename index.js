@@ -135,8 +135,8 @@ module.exports = class ExpressMVCRouter {
 	}
 
 	getParameterNames(fn) {
-		var args = fn.toString().match(/^(\s*function\s+)?(?:\w*\s*)?\((.*?)\)/);
-		args = args ? (args[2] ? args[2].trim().split(/\s*,\s*/) : []) : null;
+		var args = fn.toString().match(/^(async\s*)?(\s*function\s+)?(?:\w*\s*)?\((.*?)\)/);
+		args = args ? (args[3] ? args[3].trim().split(/\s*,\s*/) : []) : null;
 		return args;
 	}
 
